@@ -14,11 +14,11 @@ export default function App() {
   const [reload, setReload] = React.useState(false);
   const [page, setPage] = React.useState('about');
 
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user_id');
-    setReload(!reload);
-  };
+  // const handleLogout = () => {
+  //   localStorage.removeItem('token');
+  //   localStorage.removeItem('user_id');
+  //   setReload(!reload);
+  // };
 
   React.useEffect(() => {
 
