@@ -8,7 +8,7 @@ const Signup = ({ setSignUp }: { setSignUp: (val: boolean) => void }) => {
 
   const signup = async () => {
 
-    const register = await axios.post("http://localhost:8000/signup", {
+    const register = await axios.post("https://personal-assistant-server-3.onrender.com/signup", {
       email,
       password
     })
