@@ -20,7 +20,7 @@ const AIChat = ({ token, user_id }: { token: string, user_id: string }) => {
 
     const fetchMessages = async () => {
 
-        const resp = await axios.get("http://localhost:8000/tasks", {
+        const resp = await axios.get("https://personal-assistant-server-3.onrender.com/tasks", {
             headers: {
                 Authorization: `Bearer ${token}`
             },
@@ -43,7 +43,7 @@ const AIChat = ({ token, user_id }: { token: string, user_id: string }) => {
         // const token = localStorage.getItem("token")
 
         try {
-            const res = await axios.post("http://localhost:8000/ai", {
+            const res = await axios.post("https://personal-assistant-server-3.onrender.com/ai", {
                 message,
                 session: "1",
                 user_id
@@ -57,7 +57,7 @@ const AIChat = ({ token, user_id }: { token: string, user_id: string }) => {
                 setLoading(false);
                 return;
             }
-            const postData = await axios.post("http://localhost:8000/task", {
+            const postData = await axios.post("https://personal-assistant-server-3.onrender.com/task", {
                 message: res.data.reply,
                 query: message,
                 session: "1",
