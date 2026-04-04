@@ -1,6 +1,6 @@
 import React from "react";
 import AIChat from "./views/AIchat";
-// import ParticlesBackground from "./components/Modals/ParticlesBackground";
+import ParticlesBackground from "./components/Modals/ParticlesBackground";
 import Login from "./views/Login";
 import Signup from "./views/Signup";
 import About from "./views/About";
@@ -14,26 +14,24 @@ export default function App() {
   const [reload, setReload] = React.useState(false);
   const [page, setPage] = React.useState('about');
 
-  // const handleLogout = () => {
-  //   localStorage.removeItem('token');
-  //   localStorage.removeItem('user_id');
-  //   setReload(!reload);
-  // };
+   const handleLogout = () => {
+     localStorage.removeItem('token');
+     localStorage.removeItem('user_id');
+     setReload(!reload);
+   };
 
   React.useEffect(() => {
 
-    setToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZpamF5a3VtYXJiaHVreWEwMDlAZ21haWwuY29tIiwiZXhwIjoxNzc1MjIzODQ5fQ.Ln9U6Kmgup4MkH-W_I5UMe9wNt2oeUWSMpJ8_53FZxY');
-    setUser_id('vijaykumarbhukya009@gmail.com');
-    // setToken(localStorage.getItem("token") || '');
-    // setUser_id(localStorage.getItem("user_id") || '');
-
-    console.log("Token from localStorage:");
+    // setToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZpamF5a3VtYXJiaHVreWEwMDlAZ21haWwuY29tIiwiZXhwIjoxNzc1MjIzODQ5fQ.Ln9U6Kmgup4MkH-W_I5UMe9wNt2oeUWSMpJ8_53FZxY');
+    // setUser_id('vijaykumarbhukya009@gmail.com');
+    setToken(localStorage.getItem("token") || '');
+    setUser_id(localStorage.getItem("user_id") || '');
   }, [reload])
   return (
-    <div className='bg-slate-900'>
+    <div className=''>
       {!token && !showSignUp && <Login setSignUp={setSignUp} reload={reload} setReload={setReload} />}
       {showSignUp && <Signup setSignUp={setSignUp} />}
-      {/* <ParticlesBackground /> */}
+      <ParticlesBackground /> 
       {
         token &&
         <div className="grid grid-cols-12 gap-2 m-1">
@@ -50,9 +48,9 @@ export default function App() {
             <a href="#" onClick={() => setPage('agent')} className={(page == 'agent' ? " text-indigo-500 hover:text-white" : " text-white") + " p-2 hover:bg-blue-600 rounded"}>
               Assistance
             </a>
-            {/* <button onClick={handleLogout} className="mt-auto mb-9 p-2 bg-red-600 hover:bg-red-700 rounded text-white">
+             <button onClick={handleLogout} className="mt-auto mb-9 p-2 bg-red-600 hover:bg-red-700 rounded text-white">
               Logout
-            </button> */}
+            </button> 
           </div>
 
           <div className="col-span-10 ">
