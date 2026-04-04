@@ -12,7 +12,7 @@ const Login = ({ setSignUp, reload, setReload }: {
 
   const login = async () => {
 
-    const res = await axios.post("http://localhost:8000/login", {
+    const res = await axios.post("https://personal-assistant-server-3.onrender.com/login", {
       email,
       password
     })
