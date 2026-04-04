@@ -29,7 +29,7 @@ const Login = ({ setSignUp, reload, setReload }: {
 
   return (
 
-    <div className="h-screen flex items-center justify-center bg-slate-900">
+    <div className="h-screen flex items-center justify-center">
 
       <div className="bg-slate-800 p-8 rounded-lg w-96">
 
