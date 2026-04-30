@@ -1,72 +1,56 @@
-/* Remove page scroll */
-html, body {
-  height: 100%;
-  margin: 0;
-  overflow: hidden;
-}
-
-/* Wrapper */
+/* Chat container — fills its parent, lets the parent decide height */
 .chat-wrapper {
-  height: 100vh;
   display: flex;
   flex-direction: column;
-  /* background: #0f172a; */
+  height: 100%;
+  min-height: 60vh;
   color: white;
 }
 
-/* Messages Area */
 .chat-messages {
   flex: 1;
   overflow-y: auto;
-  /* padding: 20px; */
+  padding: 16px;
 }
 
-/* Message Row */
 .chat-message {
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
-/* User Message (Right) */
 .chat-message.user {
   justify-content: flex-end;
 }
 
-/* AI Message (Left) */
 .chat-message.assistant {
   justify-content: flex-start;
 }
 
-/* Bubble */
 .chat-bubble {
   max-width: 65%;
-  padding: 0px 18px;
+  padding: 0 18px;
   border-radius: 12px;
   line-height: 1.5;
   font-size: 14px;
 }
 
-/* User bubble */
 .chat-message.user .chat-bubble {
   background: #2563eb;
   color: white;
 }
 
-/* AI bubble */
 .chat-message.assistant .chat-bubble {
   background: #1e293b;
   color: #e2e8f0;
 }
 
-/* Input Section */
 .chat-input {
   display: flex;
-  padding: 15px;
+  padding: 12px;
   background: #020617;
   border-top: 1px solid #1e293b;
 }
 
-/* Input */
 .chat-input input {
   flex: 1;
   padding: 12px;
@@ -77,7 +61,6 @@ html, body {
   color: white;
 }
 
-/* Button */
 .chat-input button {
   margin-left: 10px;
   padding: 12px 20px;

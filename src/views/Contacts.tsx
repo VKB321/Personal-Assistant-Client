@@ -1,82 +1,79 @@
-const Contact = () => {
+import { resume } from "../data/resume";
+
+export default function Contact() {
+  const phoneDigits = resume.phone.replace(/[^0-9+]/g, "");
   return (
-    <center className="justify-center bg-slate-900 text-white px-8 py-12">
-
-      <h1 className="text-3xl font-bold mb-6">
-        Contact
-      </h1>
-
+    <section className="max-w-3xl mx-auto px-6 py-12 text-white">
+      <h1 className="text-3xl font-bold mb-2">Contact</h1>
       <p className="text-gray-400 mb-8">
-        Feel free to reach out for opportunities, collaboration,
-        or technical discussions.
+        Open to opportunities, collaboration, and technical conversations.
       </p>
 
-      <div className="bg-slate-800 p-6 rounded-lg max-w-xl">
-
-        <div className="space-y-4">
-
-          <div>
-            <p className="text-gray-400">Name</p>
-            <p className="text-lg">Vijay Kumar Bhukya</p>
-          </div>
-
-          <div>
-            <p className="text-gray-400">Email</p>
+      <div className="bg-slate-800/60 border border-slate-700 p-6 rounded-lg space-y-5">
+        <Field label="Name" value={resume.name} />
+        <Field
+          label="Email"
+          value={
+            <a href={`mailto:${resume.email}`} className="text-blue-400 hover:underline">
+              {resume.email}
+            </a>
+          }
+        />
+        <Field
+          label="Phone"
+          value={
+            <span className="space-x-3">
+              <span>{resume.phone}</span>
+              <a className="text-blue-400 hover:underline" href={`tel:${phoneDigits}`}>
+                Call
+              </a>
+              <a
+                className="text-green-400 hover:underline"
+                href={`https://wa.me/${phoneDigits.replace("+", "")}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                WhatsApp
+              </a>
+            </span>
+          }
+        />
+        <Field
+          label="LinkedIn"
+          value={
             <a
-              href="mailto:vijaybhukya009@gmail.com"
+              href={resume.links.linkedin}
+              target="_blank"
+              rel="noreferrer"
               className="text-blue-400 hover:underline"
             >
-              vijaybhukya009@gmail.com
+              {resume.links.linkedin}
             </a>
-          </div>
-
-          <div>
-            <p className="text-gray-400">Contact Number</p>
-            <p>+91 6300377849</p>
+          }
+        />
+        <Field
+          label="GitHub"
+          value={
             <a
-              href="tel:+916300377849"
-              className="text-blue-400 hover:underline mr-2"
-            >
-              Direct Call
-            </a>
-            <a
-              href="https://wa.me/+916300377849"
+              href={resume.links.github}
               target="_blank"
-              className="text-green-400 hover:underline"
+              rel="noreferrer"
+              className="text-blue-400 hover:underline"
             >
-              Chat on WhatsApp
+              {resume.links.github}
             </a>
-          </div>
-
-
-          <div>
-            <p className="text-gray-400">LinkedIn</p>
-            <a
-              href="https://www.linkedin.com/in/vijaykumar-bhukya/"
-              className="text-blue-400"
-              target="_blank"
-            >
-              LinkedIn Profile
-            </a>
-          </div>
-
-          <div>
-            <p className="text-gray-400">GitHub</p>
-            <a
-              href="https://github.com/VKB321"
-              className="text-blue-400"
-              target="_blank"
-            >
-              GitHub Profile
-            </a>
-          </div>
-
-        </div>
-
+          }
+        />
       </div>
-
-    </center>
+    </section>
   );
-};
+}
 
-export default Contact;
+function Field({ label, value }: { label: string; value: React.ReactNode }) {
+  return (
+    <div>
+      <p className="text-gray-400 text-sm">{label}</p>
+      <p className="text-gray-100">{value}</p>
+    </div>
+  );
+}
